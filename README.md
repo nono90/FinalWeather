@@ -12,13 +12,18 @@ Take the time you want (or can…) based on a good ratio between productivity an
 - Android API 19 (4.4 KITKAT)
 - Windows (Caliburn - WinRT or Windows 10 UWP)
 
+## Coding rules & resources
+- You are free to use any framework or library as long as their licence is free
+- You are free to use any external resource (images, gifs...) as long as they don't have copyrights
+- You can use your own coding style, but keep it consistent over the whole app
+
 ## The App
 ### Step 1: Data Model
 - Define your model based on the need of the project
 - Use the appropriate framework to handle data storage
 
 ### Step 2: Network
-- Get the current weather for Lyon, FR and the forecast for the next days. 
+- Get the current weather for **a** city you chose and the forecast for the next days. 
 - API to use: http://openweathermap.org/api (You're free to choose another one if you want to)
 
 ### Step 3: UI
