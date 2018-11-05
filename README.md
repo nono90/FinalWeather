@@ -8,7 +8,7 @@ You can use other libraries to speed up the development process and you should m
 Take the time you want (or can…) based on a good ratio between productivity and over-engineered product. Do not spend more than 2 days on that!!
 
 ## Minimum requirements:
-- iOS 9 & Swift
+- iOS 12 & Swift
 - Android API 19 (4.4 KITKAT)
 - Windows (Caliburn - WinRT or Windows 10 UWP)
 
@@ -24,7 +24,7 @@ Take the time you want (or can…) based on a good ratio between productivity an
 
 ### Step 2: Network
 - Get the current weather for **a** city you chose and the forecast for the next days. 
-- API to use: http://openweathermap.org/api (You're free to choose another one if you want to)
+- API to use: https://darksky.net/dev/docs (You're free to choose another one if you want to)
 
 ### Step 3: UI
 - Show us what you would do
