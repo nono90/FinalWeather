@@ -9,7 +9,7 @@ Take the time you want (or can…) based on a good ratio between productivity an
 
 ## Minimum requirements:
 - iOS 12 & Swift
-- Android API 19 (4.4 KITKAT)
+- Android API 21 (5.0 Lollipop) Java or Kotlin
 - Windows (Caliburn - WinRT or Windows 10 UWP)
 
 ## Coding rules & resources
