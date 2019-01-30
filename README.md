@@ -9,8 +9,8 @@ Take the time you want (or can…) based on a good ratio between productivity an
 
 ## Minimum requirements:
 - iOS 12 & Swift
-- Android API 21 (5.0 Lollipop) Java or Kotlin
-- Windows (Caliburn - WinRT or Windows 10 UWP)
+- Android API 21 (5.0 Lollipop) Kotlin
+- Windows (Windows 10 UWP)
 
 ## Coding rules & resources
 - You are free to use any framework or library as long as their licence is free
@@ -24,7 +24,8 @@ Take the time you want (or can…) based on a good ratio between productivity an
 
 ### Step 2: Network
 - Get the current weather for **a** city you chose and the forecast for the next days. 
-- API to use: https://darksky.net/dev/docs (You're free to choose another one if you want to)
+- API to use: https://darksky.net/dev/docs (You're free to choose another one if you want to).
+- No wrapper for DarkSky is allowed.
 
 ### Step 3: UI
 - Show us what you would do
