@@ -1,0 +1,2 @@
+C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\FinalWeatherData.csproj;x86
+C:\Projets\FinalWeather\FinalWeather\FinalWeatherUnitTest\FinalWeatherUnitTest.csproj;x86
