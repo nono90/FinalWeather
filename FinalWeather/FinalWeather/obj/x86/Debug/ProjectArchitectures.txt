@@ -1,0 +1,1 @@
+C:\Projets\FinalWeather\FinalWeather\FinalWeather\FinalWeather.csproj;x86
