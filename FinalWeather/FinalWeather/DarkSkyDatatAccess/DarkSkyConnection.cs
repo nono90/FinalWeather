@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Windows.Globalization.DateTimeFormatting;
 using Windows.Storage;
 using FinalWeatherData;
 using FinalWeatherData.DarkSky;
@@ -17,9 +15,9 @@ namespace FinalWeather.DarkSkyDatatAccess
     {
         private const string BaseUri = "https://api.darksky.net/forecast/";
         private const string Key = "5f5148d38811494d79a9b3a7dc46f4fd";
-
         private const string LocalWeatherData = "weatherInformations";
-        private StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
+
+        private readonly StorageFolder _localFolder = ApplicationData.Current.LocalFolder;
 
         private readonly List<ExcludeBlock> _excludeBlocks = new List<ExcludeBlock>
         {
@@ -48,11 +46,12 @@ namespace FinalWeather.DarkSkyDatatAccess
         public DarkSkyConnection LoadData()
         {
             if (_weatherInformations.Count == 0) return this;
-            
+
             foreach (var location in _weatherInformations.Keys.ToList())
             {
                 _weatherInformations[location] = LoadAsync(location).Result;
             }
+
             return this;
         }
 
@@ -64,11 +63,14 @@ namespace FinalWeather.DarkSkyDatatAccess
             {
                 using (var client = new HttpClient())
                 {
-                    var response = await client.GetAsync(new Uri(GetFullUri(location)), HttpCompletionOption.ResponseHeadersRead).ConfigureAwait(false);
+                    var response = await client
+                        .GetAsync(new Uri(GetFullUri(location)), HttpCompletionOption.ResponseHeadersRead)
+                        .ConfigureAwait(false);
                     if (!response.IsSuccessStatusCode)
                     {
                         return null;
                     }
+
                     responseBody = await response.Content.ReadAsStringAsync();
                     WriteTimestamp(location, responseBody);
                 }
@@ -110,7 +112,7 @@ namespace FinalWeather.DarkSkyDatatAccess
             return _weatherInformations;
         }
 
-        async void WriteTimestamp(Location location, string responseBody)
+        private async void WriteTimestamp(Location location, string responseBody)
         {
             StorageFile sampleFile = await _localFolder.CreateFileAsync(
                 $"{LocalWeatherData}_{location.Latitude}_{location.Longitude}.txt",
@@ -122,7 +124,8 @@ namespace FinalWeather.DarkSkyDatatAccess
         {
             try
             {
-                StorageFile sampleFile = await _localFolder.GetFileAsync($"{LocalWeatherData}_{location.Latitude}_{location.Longitude}.txt");
+                StorageFile sampleFile =
+                    await _localFolder.GetFileAsync($"{LocalWeatherData}_{location.Latitude}_{location.Longitude}.txt");
                 return await FileIO.ReadTextAsync(sampleFile);
             }
             catch (Exception)

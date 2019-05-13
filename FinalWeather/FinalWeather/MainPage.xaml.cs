@@ -29,5 +29,49 @@ namespace FinalWeather
             InitializeComponent();
             DataContext = MainPageViewModel;
         }
+        private async void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            Loaded -= OnLoaded;
+            RefreshContainer.RefreshRequested += RefreshContainer_RefreshRequested;
+            RefreshContainer.Visualizer.RefreshStateChanged += Visualizer_RefreshStateChanged;
+
+            // Add some initial content to the list.
+            await MainPageViewModel.Refresh();
+        }
+
+        private async void RefreshContainer_RefreshRequested(RefreshContainer sender, RefreshRequestedEventArgs args)
+        {
+            // Respond to a request by performing a refresh and using the deferral object.
+            using (var RefreshCompletionDeferral = args.GetDeferral())
+            {
+                // Do some async operation to refresh the content
+
+                await MainPageViewModel.Refresh();
+
+                // The 'using' statement ensures the deferral is marked as complete.
+                // Otherwise, you'd call
+                // RefreshCompletionDeferral.Complete();
+                // RefreshCompletionDeferral.Dispose();
+            }
+        }
+        
+        private void Visualizer_RefreshStateChanged(RefreshVisualizer sender, RefreshStateChangedEventArgs args)
+        {
+            // Respond to visualizer state changes.
+            // Disable the refresh button if the visualizer is refreshing.
+            if (args.NewState == RefreshVisualizerState.Refreshing)
+            {
+                RefreshButton.IsEnabled = false;
+            }
+            else
+            {
+                RefreshButton.IsEnabled = true;
+            }
+        }
+
+        private void RefreshButtonClick(object sender, RoutedEventArgs e)
+        {
+            RefreshContainer.RequestRefresh();
+        }
     }
 }

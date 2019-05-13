@@ -14,7 +14,7 @@ using FinalWeatherData.DarkSky.DataPoint;
 
 namespace FinalWeather.ViewModel
 {
-    public class MainPageViewModel
+    public class MainPageViewModel : INotifyPropertyChanged
     {
         private DarkSkyConnection _darkSkyConnection = new DarkSkyConnection();
         private Location _locationBelfort = new Location()
@@ -22,7 +22,17 @@ namespace FinalWeather.ViewModel
             Latitude = 47.6333m,
             Longitude = 6.8667m
         };
-        public WeekyWeatherViewModel WeeklyViewModel { get; set; }
+
+        public WeekyWeatherViewModel _weeklyViewModel;
+        public WeekyWeatherViewModel WeeklyViewModel
+        {
+            get => _weeklyViewModel;
+            set
+            {
+                _weeklyViewModel = value;
+                OnPropertyChanged("WeeklyViewModel");
+            }
+        }
 
         public MainPageViewModel()
         {
@@ -32,6 +42,19 @@ namespace FinalWeather.ViewModel
         private void InitializeWeather()
         {
             WeeklyViewModel = new WeekyWeatherViewModel(_darkSkyConnection.Initialise(_locationBelfort).LoadData().Result()[_locationBelfort].Daily.Data);
+        }
+
+        public async Task Refresh()
+        {
+            InitializeWeather();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

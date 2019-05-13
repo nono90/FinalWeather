@@ -7,18 +7,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30" />
-        </Grid.RowDefinitions>
-        <view:WeekyWeatherView
+    Background="DeepSkyBlue">
+    <StackPanel>
+        <CommandBar OverflowButtonVisibility="Collapsed">
+            <AppBarButton x:Name="RefreshButton" Click="RefreshButtonClick"
+                          Icon="Refresh" Label="Refresh"/>
+        </CommandBar>
+
+        <RefreshContainer x:Name="RefreshContainer"
+                          VerticalAlignment="Stretch"
+                          HorizontalAlignment="Stretch">
+            <view:WeekyWeatherView
             DataContext="{Binding WeeklyViewModel}"
             HorizontalAlignment = "Stretch"
-            VerticalAlignment="Stretch"
-            Grid.Column="0"
-            Grid.Row="1"/>
-     </Grid>   
+            VerticalAlignment="Stretch"/>
+        </RefreshContainer>
+    </StackPanel>
 </Page>

@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ListView 
-        Background="DeepSkyBlue"
             ItemsSource="{Binding DailyViewModels}">
         <ListView.ItemContainerStyle>
             <Style TargetType="ListViewItem">
