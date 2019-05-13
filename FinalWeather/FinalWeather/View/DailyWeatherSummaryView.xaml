@@ -1,0 +1,69 @@
+﻿<UserControl
+    x:Class="FinalWeather.View.DailyWeatherSummaryView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converter="using:FinalWeather.Converter"
+    xmlns:viewModel="using:FinalWeather.ViewModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="200"
+    d:DesignHeight="100">
+   <UserControl.Resources>
+        <converter:WeatherIconConverter x:Key="WeatherIconConverter" />
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <viewModel:DailyWeatherSummaryViewModel/>
+    </UserControl.DataContext>
+    <Grid
+        Background="LightSlateGray">
+        <Grid.RowDefinitions>
+            <RowDefinition 
+                Height="*" />
+            <RowDefinition 
+                Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition 
+                Width="2*"/>
+            <ColumnDefinition 
+                Width="*"/>
+            <ColumnDefinition 
+                Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock
+            Grid.Column="0"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            TextAlignment="Left"
+            VerticalAlignment="Center"
+            FontSize="12"
+            FontWeight="Bold"
+            Text="{Binding DateTimeDisplay}"/>
+
+        <TextBlock 
+            Grid.Column="1"
+            Grid.Row="0"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="10"
+            FontWeight="Bold"
+            Text="{Binding TemperatureMaxDisplay}"/>
+
+        <TextBlock 
+            Grid.Column="1"
+            Grid.Row="1"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="10"
+            FontStyle="Italic"
+            Text="{Binding TemperatureMinDisplay}"/>
+
+        <Image 
+            Grid.Column="2"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            MaxHeight="80"
+            Source="{Binding Path=IconDisplay, Converter={StaticResource WeatherIconConverter}}"/>
+    </Grid>
+</UserControl>

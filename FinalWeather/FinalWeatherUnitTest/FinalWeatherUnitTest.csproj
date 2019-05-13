@@ -8,11 +8,11 @@
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinalWeatherUnitTest</RootNamespace>
-    <AssemblyName>FinalWeatherUnitTest</AssemblyName>
+    <AssemblyName>044</AssemblyName>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.17763.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -162,6 +162,10 @@
     <ProjectReference Include="..\FinalWeatherData\FinalWeatherData.csproj">
       <Project>{ae2cd69c-0e03-401d-b63a-3bf4423d1f34}</Project>
       <Name>FinalWeatherData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FinalWeather\FinalWeather.csproj">
+      <Project>{0480EF8F-3AAA-4A28-A471-DD23C8CCC922}</Project>
+      <Name>FinalWeather</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

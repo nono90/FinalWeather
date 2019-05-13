@@ -89,6 +89,19 @@ namespace FinalWeatherData.DarkSky.DataPoint
         /// minutely data point are always aligned to the top of the minute, hourly data point objects to the top of the hour, and daily data point objects to midnight of the day, all according to the local time zone.
         /// </summary>
         public string Time { get; set; }
+       
+        public DateTime? Date
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(Time)
+                    || !long.TryParse(Time, out long tmpTime))
+                {
+                    return null;
+                }
+                return DateTimeOffset.FromUnixTimeSeconds(tmpTime).DateTime;
+            }
+        }
         
         /// <summary>
         /// Optional

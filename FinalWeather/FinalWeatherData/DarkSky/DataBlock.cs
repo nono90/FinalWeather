@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using FinalWeatherData.DarkSky.Enum;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace FinalWeatherData.DarkSky
 {
@@ -25,6 +27,7 @@ namespace FinalWeatherData.DarkSky
         /// Optional
         /// A machine-readable text summary of this data block. (May take on the same values as the iconproperty of data points.)
         /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
         public Icon Icon { get; set; }
 
         

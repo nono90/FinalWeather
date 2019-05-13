@@ -2,6 +2,8 @@ C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\FinalWeather
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\FinalWeatherData.pdb
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\FinalWeatherData.pri
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\Microsoft.UI.Xaml.Markup.winmd
+C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\Newtonsoft.Json.dll
+C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\Newtonsoft.Json.xml
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\FinalWeatherData.csproj.CoreCompileInputs.cache
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\FinalWeatherData.csproj.CopyComplete
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\FinalWeatherData.dll
@@ -21,6 +23,3 @@ C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\pri.resfiles
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\qualifiers.txt
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\Newtonsoft.Json.dll
-C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\bin\x86\Debug\Newtonsoft.Json.xml
-C:\Projets\FinalWeather\FinalWeather\FinalWeatherData\obj\x86\Debug\FinalWeatherData.csprojAssemblyReference.cache

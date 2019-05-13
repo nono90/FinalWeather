@@ -8,11 +8,11 @@ namespace FinalWeatherData.DarkSky.Enum
 {
     public enum ExcludeBlock
     {
-        Currently,
-        Minutely,
-        Hourly,
+        currently,
+        minutely,
+        hourly,
         Daily,
-        Alerts,
-        Flags,
+        alerts,
+        flags
     }
 }

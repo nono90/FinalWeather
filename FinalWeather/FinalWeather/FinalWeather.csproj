@@ -12,7 +12,7 @@
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17763.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.17134.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -119,10 +119,22 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\WeatherIconConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DarkSkyDatatAccess\DarkSkyConnection.cs" />
+    <Compile Include="ViewModel\DailyWeatherSummaryViewModel.cs" />
+    <Compile Include="ViewModel\MainPageViewModel.cs" />
+    <Compile Include="ViewModel\WeekyWeatherViewModel.cs" />
+    <Compile Include="View\DailyWeatherSummaryView.xaml.cs">
+      <DependentUpon>DailyWeatherSummaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WeekyWeatherView.xaml.cs">
+      <DependentUpon>WeekyWeatherView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -141,6 +153,21 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Ressources\cloud.png" />
+    <Content Include="Ressources\cloud_snow.png" />
+    <Content Include="Ressources\fog.png" />
+    <Content Include="Ressources\moon.png" />
+    <Content Include="Ressources\moon_cloudy.png" />
+    <Content Include="Ressources\moon_cloudy_snow.png" />
+    <Content Include="Ressources\moon_rain.png" />
+    <Content Include="Ressources\rain.png" />
+    <Content Include="Ressources\snowflake.png" />
+    <Content Include="Ressources\sun.png" />
+    <Content Include="Ressources\sun_simple.png" />
+    <Content Include="Ressources\sun_simple_cloudy.png" />
+    <Content Include="Ressources\sun_simple_cloudy_snow.png" />
+    <Content Include="Ressources\sun_simple_rain.png" />
+    <Content Include="Ressources\wind.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -151,12 +178,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\DailyWeatherSummaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WeekyWeatherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.7</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FinalWeatherData\FinalWeatherData.csproj">
+      <Project>{AE2CD69C-0E03-401D-B63A-3BF4423D1F34}</Project>
+      <Name>FinalWeatherData</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Users\arnau\.nuget\packages\newtonsoft.json\9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -145,6 +145,6 @@ namespace FinalWeatherData.DarkSky.DataPoint
         /// optional, only on daily
         /// The time at which the maximum wind gust speed occurs during the day.
         /// </summary>
-        public string DateTime { get; set; }
+        public string windGustTime { get; set; }
     }
 }
